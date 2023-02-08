@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
- <meta charset="UTF-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Document</title>
-</head>
-<body>
- Index page
-</body>
-</html>
+{% extends 'base.html' %}{% block head %} {{ super() }}
+
+<link rel="stylesheet" href="{{ url_for("static",filename="extended_beauty.css") }}">
+ 
+{% endblock  %} 
+
+{% block content %}
+ <h1>Hello!</h1> 
+ <center>
+   <img 
+   src="{{url_for("static", filename="images/pushup.png")}}" alt="pushup guy"
+   height="200px">
+ </center>
+ <p>Welcome to push logger <br/>This website exercise basic crud functionalities and user authentication fetures using flask </p>
+
+{% endblock %}
