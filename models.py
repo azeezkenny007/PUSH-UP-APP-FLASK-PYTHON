@@ -1,21 +1,17 @@
-from . import db
-from sqlalchemy import Column, Integer, String
-from .database import Base
 
+from sqlalchemy import Column, Integer, String,create_engine
+from sqlalchemy.orm import sessionmaker,relationship
 
-class UserOne(db.Model):
-    id = db.Column(db.Integer(), primary_key=True)
-    name = db.Column(db.String(100))
-    email = db.Column(db.String(100), unique=True)
-    password = db.Column(db.String(100))
+from sqlalchemy.ext.declarative import declarative_base
 
-
+Base = declarative_base()
 
 class User(Base):
     __tablename__ = 'users'
-    id = Column(Integer, primary_key=True)
-    name = Column(String(50), unique=True)
-    email = Column(String(120), unique=True)
+    id = Column("id",Integer, primary_key=True)
+    name = Column("username",String(50))
+    email = Column("email",String(120), unique=True)
+    password=Column("password",String(120))
 
     def __init__(self, name=None, email=None):
         self.name = name
@@ -23,3 +19,10 @@ class User(Base):
 
     def __repr__(self):
         return f'<User {self.name!r}>'
+    
+engine = engine = create_engine('sqlite:///user.db',echo=True)
+Base.metadata.create_all(bind=engine)
+Session =sessionmaker(bind=engine)
+
+session =Session()
+session.close()

@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, redirect, request, url_for
+from werkzeug.security import generate_password_hash
 
 auth = Blueprint("auth", __name__)
 
