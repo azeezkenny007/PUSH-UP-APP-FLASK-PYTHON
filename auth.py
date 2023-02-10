@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, redirect, request, url_for
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash,check_password_hash
 from .models import User,session
 
 auth = Blueprint("auth", __name__)
@@ -14,7 +14,14 @@ def login():
 def login_post():
     email = request.form.get("email")
     password = request.form.get("password")
+    remember =True if request.form.get("remember") else False
     print(email,password)
+    
+    user =session.query(User).filter_by(email=email).first()
+    if not user or not check_password_hash(user.password,password):
+        return redirect("auth.login")
+        
+        
     
 
     return redirect(url_for("main.profile"))
@@ -29,7 +36,7 @@ def signup_post():
     # print(email, name, password)
     user =session.query(User).filter_by(email=email).first()
     if user:
-        print("User already exists")
+        return redirect(url_for("auth.signup"))
     else:
         new_user = User(email=email,name=name,password=generate_password_hash(password,method="sha256"))
         session.add(new_user)
