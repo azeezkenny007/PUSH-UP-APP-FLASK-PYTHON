@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, redirect, request, url_for
 from werkzeug.security import generate_password_hash,check_password_hash
 from .models import User,session
-
+from flask_login import login_user,logout_user,login_required
 auth = Blueprint("auth", __name__)
 
 
@@ -20,10 +20,8 @@ def login_post():
     user =session.query(User).filter_by(email=email).first()
     if not user or not check_password_hash(user.password,password):
         return redirect("auth.login")
-        
-        
     
-
+    login_user(user,remember=remember)
     return redirect(url_for("main.profile"))
 
 
@@ -51,5 +49,7 @@ def signup():
 
 
 @auth.route("/logout")
+@login_required
 def logout():
-    return "Use thsi view to logout"
+    logout_user()
+    return redirect("main.index")
