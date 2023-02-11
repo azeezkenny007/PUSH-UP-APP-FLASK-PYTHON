@@ -41,3 +41,14 @@ def user_workouts():
     workout =user.workout
     return render_template("all_workouts.html",user=user,workouts=workout)
     
+@main.route("/workout/<int:workout_id>/update",methods=["GET","POST"])
+@login_required
+def update_workout(workout_id):
+    workout =session.query(Workout).get(workout_id)
+    if request.method =="POST":
+        workout.pushups = request.form["pushups"]
+        workout.comment = request.form["comment"]
+        session.commit()
+        flash("you workout has been updated")
+        return redirect(url_for("main.user_workouts"))
+    return render_template("update_workout.html",workout=workout)

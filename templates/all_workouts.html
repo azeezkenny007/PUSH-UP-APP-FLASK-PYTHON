@@ -24,7 +24,7 @@
         <td>{{ workout.comment }}</td>
         <td>
           <a
-            href="#"
+            href="{{ url_for('main.update_workout', workout_id=workout.id) }}"
             class="btn btn-outline-primary"
             role="button"
           >
@@ -32,6 +32,7 @@
           </a>
         </td>
         <td>
+          
           <a
             href="#"
             class="btn btn-outline-danger"
