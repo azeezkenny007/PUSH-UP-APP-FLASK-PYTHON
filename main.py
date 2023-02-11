@@ -52,3 +52,7 @@ def update_workout(workout_id):
         flash("you workout has been updated")
         return redirect(url_for("main.user_workouts"))
     return render_template("update_workout.html",workout=workout)
+
+# @main.route("/workout/<int:workout_id>/delete",methods=["GET","POST"])
+# @login_required
+# def delete_workout():
