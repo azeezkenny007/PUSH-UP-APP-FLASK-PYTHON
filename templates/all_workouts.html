@@ -4,23 +4,23 @@
   href="{{ url_for('static', filename= 'extended_beauty.css') }}"
 />
 {% endblock %} {% block content %}
-<h1>
-  Welcome, {{ user.name }}!
+<h1 class="title">
+  Welcome, {{ user.name }}⛹️‍♀️
 </h1>
 <div>
   <table class="table table-hover" style="width: 700px;">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">Number of Push-Ups</th>
-        <th scope="col">Performed At</th>
-        <th scope="col">Comments</th>
+        <th  class="p-15" scope="col">Number of Push-Ups</th>
+        <th class="p-15" scope="col">Performed At</th>
+        <th class="p-15" scope="col">Comments</th>
       </tr>
     </thead>
     <tbody>
       {% for workout in workouts %}
-      <tr>
-        <td>{{ workout.pushups }}</td>
-        <td>{{ workout.date_posted.strftime('%m/%d/%Y') }}</td>
+      <tr class="fs-6">
+        <td class="fs-6">{{ workout.pushups }}</td>
+        <td class="fs-6">{{ workout.date_posted.strftime('%m/%d/%Y') }}</td>
         <td>{{ workout.comment }}</td>
         <td>
           <a

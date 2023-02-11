@@ -5,12 +5,17 @@
 {% endblock  %} 
 
 {% block content %}
- <h1>Hello!</h1> 
- <center>
-   <img 
-   src="{{url_for("static", filename="images/pushup.png")}}" alt="pushup guy"
-   height="200px">
- </center>
+<div class="d-flex flex-column flex-md-row justify-content-center align-items-center">
+<div class="fs-6">
+ <h1 class="fs-1">Hello!</h1> 
+ 
  <p>Welcome to push logger <br/>This website exercise basic crud functionalities and user authentication fetures using flask </p>
+</div>
+ <center>
+  <img 
+  src="{{url_for("static", filename="images/pushup.png")}}" alt="pushup guy"
+  height="200px">
+</center>
+</div>
 
 {% endblock %}
