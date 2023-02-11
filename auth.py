@@ -19,7 +19,7 @@ def login_post():
     
     user =session.query(User).filter_by(email=email).first()
     if not user or not check_password_hash(user.password,password):
-        return redirect("auth.login")
+        return redirect(url_for("auth.login"))
     
     login_user(user,remember=remember)
     return redirect(url_for("main.profile"))
@@ -52,4 +52,4 @@ def signup():
 @login_required
 def logout():
     logout_user()
-    return redirect("main.index")
+    return redirect(url_for("main.index"))
