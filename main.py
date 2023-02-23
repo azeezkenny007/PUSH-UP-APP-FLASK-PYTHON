@@ -53,6 +53,10 @@ def update_workout(workout_id):
         return redirect(url_for("main.user_workouts"))
     return render_template("update_workout.html",workout=workout)
 
-# @main.route("/workout/<int:workout_id>/delete",methods=["GET","POST"])
-# @login_required
-# def delete_workout():
+@main.route("/workout/<int:workout_id>/delete",methods=["GET","POST"])
+@login_required
+def delete_workout(workout_id):
+    workout =session.query(Workout).get(workout_id)
+    session.delete(workout)
+    session.commit()
+    return redirect(url_for("main.user_workouts"))

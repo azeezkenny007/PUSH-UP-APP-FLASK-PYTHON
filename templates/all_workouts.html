@@ -5,7 +5,7 @@
 />
 {% endblock %} {% block content %}
 <h1 class="title">
-  Welcome, {{ user.name }}⛹️‍♀️
+  Welcome, {{ user.name }}🥈
 </h1>
 <div>
   <table class="table table-hover" style="width: 700px;">
@@ -34,7 +34,7 @@
         <td>
           
           <a
-            href="#"
+            href="{{ url_for('main.delete_workout', workout_id=workout.id) }}"
             class="btn btn-outline-danger"
             role="button"
           >
