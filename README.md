@@ -1,38 +1,54 @@
+
 # PUSH-UP-APP-FLASK-PYTHON
 
 This uses the flask library for backend implementation
 
 
 
-## Run Locally for Contribution
+## Run Locally
 
-1. Fork this project from github.
+if you want to use virtual envirement then create and activate first.
 
-2. open new folder in Visual studio code.
+1. open new folder in Visual studio code.
 
-3. Create virual environment. eg- myenv
+2. Create virual environment. eg- myenv
 
 ```bash
 python -m venv myenv
 ```
-4. Activate virtual environment in windows
+3. Activate virtual environment in windows
 
 ```bash
 myenv/Scripts/activate
 ```
-5. After fork on git hub, copy your https link for your repositery then Clone/download project in your local machine.
+
+--------
+
+Now,Clone the project
 
 ```bash
-git clone https://github.com/your-user-name/PUSH-UP-APP-FLASK-PYTHON.git
+  git clone https://github.com/azeezkenny007/PUSH-UP-APP-FLASK-PYTHON.git
 ```
 
-6. Install requried module
+Go to the project directory
 
 ```bash
-pip install -r requirements.txt
+  cd PUSH-UP-APP-FLASK-PYTHON
 ```
 
-    
+Install dependencies
+
+```bash
+  pip install -r requriements.txt
+```
+
+Start the server
+
+```bash
+  python app.py
+```
+
+
 ## Authors
 
 - [@azeezkenny007](https://github.com/azeezkenny007)
@@ -40,3 +56,12 @@ pip install -r requirements.txt
 ## Contributors
 
 - [@bhagirath20](https://www.github.com/bhagirath20)
+
+## Contributing
+
+Contributions are always welcome!
+
+See `contributing.md` for ways to get started.
+
+Please adhere to this project's `code of conduct`.
+
