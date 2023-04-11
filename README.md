@@ -7,7 +7,7 @@ This uses the flask library for backend implementation
 
 ## Run Locally
 
-if you want to use virtual envirement then create and activate first.
+if you want to use virtual environment then create and activate first.
 
 1. open new folder in Visual studio code.
 
