@@ -14,12 +14,12 @@ if you want to use virtual environment then create and activate first.
 2. Create virual environment. eg- myenv
 
 ```bash
-python -m venv myenv
+python -m venv venv
 ```
 3. Activate virtual environment in windows
 
 ```bash
-myenv/Scripts/activate
+venv/Scripts/activate
 ```
 
 --------
